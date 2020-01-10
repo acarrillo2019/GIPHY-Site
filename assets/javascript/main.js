@@ -21,6 +21,13 @@ var gifNum = 10;
 
 addButtons();
 
+// Adding click event listeners to all elements with a class of "theme"
+$(document).on("click", ".theme", function() {
+    $("#displayGif").empty(); // When new theme is selected, clear the displayed gifs,
+    offset = 0;   // reset the offset to 0
+    displayGifInfo($(this).attr("data-theme"))
+});
+
 var theme = "Comic Book";
 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + theme + "&limit=10&offset=0&rating=G&lang=en&api_key=HbeuwKqfIIBRYZdteUvBd2Nwwp4GFQr4";
 
