@@ -42,3 +42,23 @@ function addButtons() {
         $("#gifButtons").append(a);
     }
 }
+
+$("#addGif").on("click", function(event) {
+    event.preventDefault();
+    // Grab the input from the textbox
+    var theme = $("#gifInput").val().trim();
+
+    // Add button only if text field is not blank
+    if (theme != "") {
+
+        // The gif theme from the textbox is then added to gif array
+        themes.push(theme);
+
+        // Calling renderButtons which handles the processing of gif array
+        renderButtons();
+
+        // Clear input text field
+        $("#gifInput").val("");
+    }
+
+});  
