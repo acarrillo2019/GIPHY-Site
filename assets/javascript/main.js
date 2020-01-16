@@ -1,21 +1,29 @@
+// The following pseudo code are homework assignment directiions
+
+
+
 /* 1. Before you can make any part of your site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called `topics`.
-   * We chose animals for our theme, but you can make a list to your own liking.
+   * We chose animals for our theme, but you can make a list to your own liking.*/
+/* 2. Your app should take the topics in this array and create buttons in your HTML.
+   * Try using a loop that appends a button for each string in the array. */
+/* 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page. */
+/* 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing. */
 
-2. Your app should take the topics in this array and create buttons in your HTML.
-   * Try using a loop that appends a button for each string in the array.
-
-3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
-
-4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
-
-5. Under every gif, display its rating (PG, G, so on).
+/* 5. Under every gif, display its rating (PG, G, so on).
    * This data is provided by the GIPHY API.
-   * Only once you get images displaying with button presses should you move on to the next step.
+   * Only once you get images displaying with button presses should you move on to the next step. */
 
-6. Add a form to your page that takes a value from a user input box and adds it to your `topics` array. Then make a function call that takes each topic in the array and remakes the buttons on the page.
-
+/* 6. Add a form to your page that takes a value from a user input box and adds it to your `topics` array. Then make a function call that takes each topic in the array and remakes the buttons on the page.
 */
 
+
+
+
+// The following code is paired with the directions above
+
+
+/* 1. Before you can make any part of your site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called `topics`.
+   * We chose animals for our theme, but you can make a list to your own liking.*/
 var topics = ["Batman", "Superman", "Spiderman", "X-men", "Deadpool", "Joker", "Hulk"];
 var gifNum = 10;
 var offset = 0;
@@ -33,6 +41,12 @@ $(document).on("click", ".theme", function() {
 // Add click event listners to all elemements with a class of "gifImage"
 $(document).on("click",".gifImage", toggleGif);
 
+
+
+
+
+/* 6. Add a form to your page that takes a value from a user input box and adds it to your `topics` array. Then make a function call that takes each topic in the array and remakes the buttons on the page.
+*/
 // Handles events when the add gif button is clicked
 $("#addGif").on("click", function(event) {
     event.preventDefault();
@@ -43,7 +57,7 @@ $("#addGif").on("click", function(event) {
     if (theme != "") {
 
         // The gif theme from the textbox is then added to gif array
-        themes.push(theme);
+        topics.push(theme);
 
         // Calling renderButtons which handles the processing of gif array
         renderButtons();
@@ -59,6 +73,14 @@ $("#moreGifs").on("click", function(event) {
     offset += 10;
     displayGifInfo($(this).attr("data-theme"));
 });
+
+
+
+
+
+
+
+/* 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page. */
 
 // displayGifInfo function re-renders the HTML to display the appropriate content
 function displayGifInfo(theme) {
@@ -84,6 +106,10 @@ function displayGifInfo(theme) {
             gifImage.attr("still",response.data[i].images.fixed_height_small_still.url)
             gifImage.attr("gif",response.data[i].images.fixed_height_small.url);
             gifDiv.append(ul);
+
+/* 5. Under every gif, display its rating (PG, G, so on).
+   * This data is provided by the GIPHY API.
+   * Only once you get images displaying with button presses should you move on to the next step. */
             ul.append("<li class='list-group-item'><strong>Source:</strong> " + response.data[i].source_tld + "<br/>")
             div.append("<h6>Rating: " + response.data[i].rating.toUpperCase() + "</h6>")
             gifDiv.prepend(div);
@@ -91,21 +117,18 @@ function displayGifInfo(theme) {
             console.log(gifDiv)
             $("#displayGif").prepend(gifDiv);
 
-            // Display without using cards
-            // var a = $("<img>");
-            // a.attr("src",response.data[i].images.fixed_height_still.url);
-            // a.attr("still",response.data[i].images.fixed_height_still.url)
-            // a.attr("gif",response.data[i].images.fixed_height.url);
-            // a.addClass("gifImage hover-outline");
-            // $("#displayGif").prepend(a); // Using preprend so most recent images added at the top
-
-            // a = response.data[i].rating;
-            // $("#displayGif").prepend("<h6 class=\"text-primary my-3\">Rating: "+a.toUpperCase()+"</h6>")
-
         }
         $("#moreGifs").show().attr("data-theme",theme);  // Add current theme to more button
     });
 }
+
+
+
+
+
+
+/* 2. Your app should take the topics in this array and create buttons in your HTML.
+   * Try using a loop that appends a button for each string in the array. */
 
 // Function for displaying gif theme buttons
 function renderButtons() {
@@ -129,6 +152,12 @@ function renderButtons() {
     }   
 }
 
+
+
+
+
+
+/* 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing. */
 
 // Function to toggle between still image and gif
 function toggleGif () {

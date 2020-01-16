@@ -16,18 +16,23 @@
         <h1>Up, Up and Away!</h1>
     </div>
 
-    <div class="container">
+    <div class="container mx-auto">
         <div class="row">
-            <div class="col-md" id="gifButtons"></div>
+            <div class="col-md-12" id="gifButtons"></div>
         </div>
         <div class="row">
-            <div class="col-md my-3">
+            <div class="col-md-6 my-4">
                 <form id="gifForm">
-                    <label for="gifInput">More Comics!</label>
+                    <label for="gifInput">Add Another Character!</label>
                     <input id="gifInput" class="border border-primary rounded" type="text">
                     <!-- Add a new gif theme button -->
-                    <input id="addGif" type="submit" value="Submit" class="btn btn-primary">
-                    <input id="moreGifs" type="submit" value="BOOM! POW!" class="btn btn-primary">
+                    <input id="addGif" type="submit" value="BOOM!" class="btn btn-primary">
+                </form>
+            </div>
+            <div class="col-md-6 my-4">
+                <form id="gifForm">
+                    <label for="moreGifs">Add 10 More GIFs!</label>
+                    <input id="moreGifs" type="submit" value="POW!" class="btn btn-primary">
                 </form>
             </div>
         </div>
