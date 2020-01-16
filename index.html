@@ -12,13 +12,28 @@
 
 <body>
 
-    <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <h1>Up, Up and Away!</h1>
+    </div>
 
-        <h1>Comics</h1>
+    <div class="container">
         <div class="row">
             <div class="col-md" id="gifButtons"></div>
         </div>
-
+        <div class="row">
+            <div class="col-md my-3">
+                <form id="gifForm">
+                    <label for="gifInput">More Comics!</label>
+                    <input id="gifInput" class="border border-primary rounded" type="text">
+                    <!-- Add a new gif theme button -->
+                    <input id="addGif" type="submit" value="Submit" class="btn btn-primary">
+                    <input id="moreGifs" type="submit" value="BOOM! POW!" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md card-columns" id="displayGif"></div>
+        </div>
     </div>
 
 
