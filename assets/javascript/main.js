@@ -69,3 +69,9 @@ $("#addGif").on("click", function(event) {
     }
 
 });  
+
+$("#moreGifs").on("click", function(event) {
+    event.preventDefault();
+    offset += 10;
+    displayGifInfo($(this).attr("data-theme"));
+});
