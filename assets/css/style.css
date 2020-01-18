@@ -1,0 +1,27 @@
+body {
+    font-family: 'Bangers', cursive;
+    font-size: 30px;
+    background-color: rgb(248, 245, 41);
+}
+
+.jumbotron {
+    
+    background-color: rgb(231, 8, 8);
+}
+
+.bgcolor1 {
+    background-color: rgb(248, 245, 41);    
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+
+.bgcolor2 {
+    background-color: rgb(231, 8, 8);    
+    padding: 20px;
+  }
+  
+
+#jumbotext {
+    font-size: 5rem;
+    color: rgb(248, 245, 41);
+}

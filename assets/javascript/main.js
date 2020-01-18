@@ -68,6 +68,8 @@ $("#addGif").on("click", function(event) {
 
 });  
 
+
+// Add more gifs when more gifs button clicked
 $("#moreGifs").on("click", function(event) {
     event.preventDefault();
     offset += 10;
@@ -119,6 +121,7 @@ function displayGifInfo(theme) {
 
         }
         $("#moreGifs").show().attr("data-theme",theme);  // Add current theme to more button
+        $("#addMore").show()
     });
 }
 
@@ -136,7 +139,7 @@ function renderButtons() {
     // Clear current buttons and re-render the buttons to prevent button duplication
     $("#gifButtons").empty();
     $("#moreGifs").hide();
-
+    $("#addMore").hide();
     // Loops through the array of gif themes
     for (var i = 0; i < topics.length; i++) {
         // Dynamicaly generate buttons for each gif theme in the array
